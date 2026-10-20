@@ -99,12 +99,9 @@ Improved form validation and accessibility.
 Automated tests and stronger administrative access controls.
 
 ## NOTE
-**Admin Login Credentials**
+### Admin Login (Assessment Demo)
 
-- **Admin Email:** dorrohstar@gmail.com
-- **Password:** 12345678
-
-Use these credentials to access the Kenyan Voice Admin Dashboard for testing and demonstration purposes.
+Admin login credentials are provided separately to the assessment team for testing and demonstration purposes.
 
 ## Author
 

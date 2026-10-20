@@ -10,3 +10,5 @@ js/firebase-config.js
 # Dependencies and generated files
 node_modules/
 .DS_Store
+
+admin-credentials.txt
