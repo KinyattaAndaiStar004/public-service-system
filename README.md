@@ -70,6 +70,7 @@ public-service-system/
 7. Configure Cloudinary if optional image uploads are enabled.
 8. Run the project using VS Code Live Server or another local web server.
 
+
 Firebase web configuration is intended for client-side applications, but Firestore security rules must protect private records and administrator actions. Never commit Firebase Admin SDK credentials, service-account keys, passwords, or other server secrets.
 
 ## Data and Security
@@ -81,6 +82,7 @@ Before production use, review and test the Firestore security rules, validate su
 ## Deployment
 
 The application can be deployed using a static hosting service such as Firebase Hosting or GitHub Pages.
+I will use netlify.
 
 Because the application uses Firebase modules, authentication, and Firestore, it must be served over HTTP/HTTPS rather than opened directly as a local file:// page.
 
@@ -95,6 +97,14 @@ More detailed service analytics.
 Improved form validation and accessibility.
 
 Automated tests and stronger administrative access controls.
+
+## NOTE
+**Admin Login Credentials**
+
+- **Admin Email:** dorrohstar@gmail.com
+- **Password:** 12345678
+
+Use these credentials to access the Kenyan Voice Admin Dashboard for testing and demonstration purposes.
 
 ## Author
 
