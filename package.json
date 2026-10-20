@@ -1,12 +1,21 @@
+
 {
   "name": "public-service-system",
   "version": "1.0.0",
+  "private": true,
   "description": "Kenyan Voice — Public Service Request System",
-  "main": "vite.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^13.0.0"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0"
+  }
 }
