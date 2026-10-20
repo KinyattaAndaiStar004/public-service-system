@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kenyan Voice administrator dashboard for managing public service requests.">
+    <title>Admin Dashboard | Kenyan Voice</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+
+    <script type="module" src="../js/admin.js"></script>
+</head>
+
+<body class="admin-page">
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-content">
+            <a href="index.html" class="brand" aria-label="Kenyan Voice Home">
+                <span class="kenya-logo" aria-hidden="true">
+                    <span class="flag-black"></span>
+                    <span class="flag-red"></span>
+                    <span class="flag-green"></span>
+                </span>
+                <span class="brand-name">Kenyan <strong>Voice</strong></span>
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Citizen Dashboard</a>
+                <a href="admin.html" class="active" aria-current="page">Admin</a>
+                <a href="login.html" class="logout-link">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="admin-main">
+        <div class="admin-container">
+
+            <!-- Page Heading -->
+            <section class="admin-welcome">
+                <div>
+                    <p class="section-label">ADMINISTRATION</p>
+                    <h1>Admin Dashboard</h1>
+                    <p>Monitor, manage and respond to public service requests.</p>
+                </div>
+
+                <div class="admin-badge">
+                    <span class="admin-avatar">A</span>
+                    <div>
+                        <strong>Administrator</strong>
+                        <span>System Management</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistics -->
+            <section class="admin-stats" aria-label="Request statistics">
+
+                <article class="stat-card total-card">
+                    <div class="stat-icon" aria-hidden="true">▤</div>
+                    <div>
+                        <p>Total Requests</p>
+                        <h2 id="total-requests-count">—</h2>
+                        <span>All submitted requests</span>
+                    </div>
+                </article>
+
+                <article class="stat-card pending-card">
+                    <div class="stat-icon" aria-hidden="true">◷</div>
+                    <div>
+                        <p>Pending</p>
+                        <h2 id="pending-requests-count">—</h2>
+                        <span>Awaiting attention</span>
+                    </div>
+                </article>
+
+                <article class="stat-card progress-card">
+                    <div class="stat-icon" aria-hidden="true">↻</div>
+                    <div>
+                        <p>In Progress</p>
+                        <h2 id="in-progress-count">—</h2>
+                        <span>Currently being handled</span>
+                    </div>
+                </article>
+
+                <article class="stat-card resolved-card">
+                    <div class="stat-icon" aria-hidden="true">✓</div>
+                    <div>
+                        <p>Resolved</p>
+                        <h2 id="resolved-count">—</h2>
+                        <span>Completed requests</span>
+                    </div>
+                </article>
+
+            </section>
+
+            <!-- Requests Management -->
+            <section class="requests-panel" aria-labelledby="requests-heading">
+
+                <div class="panel-heading">
+                    <div>
+                        <h2 id="requests-heading">Public Service Requests</h2>
+                        <p>Click a request to view its complete details and any attached image.</p>
+                    </div>
+
+                    <span class="request-count" id="request-count-label">
+                        Requests: —
+                    </span>
+                </div>
+
+                <!-- Search and Filters -->
+                <div class="request-toolbar">
+
+                    <div class="search-box">
+                        <label for="request-search">Search requests</label>
+                        <input
+                            type="search"
+                            id="request-search"
+                            placeholder="Search by citizen or location..."
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <div class="filter-box">
+                        <label for="category-filter">Category</label>
+                        <select id="category-filter">
+                            <option value="">All Categories</option>
+                            <option value="Water">Water Supply</option>
+                            <option value="Roads">Roads &amp; Drainage</option>
+                            <option value="Waste">Waste Management</option>
+                            <option value="Lighting">Street Lighting</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-box">
+                        <label for="status-filter">Status</label>
+                        <select id="status-filter">
+                            <option value="">All Statuses</option>
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- Requests Table -->
+                <div class="table-wrapper">
+                    <table class="requests-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Request ID</th>
+                                <th scope="col">Citizen</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Date Submitted</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="admin-requests-table-body">
+                            <tr>
+                                <td colspan="7" class="empty-state">
+                                    Loading requests from Firebase...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-note" id="table-note" role="status" aria-live="polite">
+                    Request information will appear here once data is available.
+                </div>
+
+            </section>
+
+            <p class="admin-disclaimer">
+                This is an independent demonstration project, not an official government website.
+            </p>
+
+        </div>
+    </main>
+
+    <!-- Request Details Modal -->
+    <div id="request-details-modal"
+         class="request-details-overlay"
+         hidden>
+
+        <section class="request-details-dialog"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="details-title">
+
+            <div class="request-details-header">
+                <div>
+                    <p class="section-label">REQUEST INFORMATION</p>
+                    <h2 id="details-title">Service Request Details</h2>
+                </div>
+
+                <button type="button"
+                        id="close-request-details"
+                        class="details-close-button"
+                        aria-label="Close request details">
+                    &times;
+                </button>
+            </div>
+
+            <div id="request-details-content" class="request-details-content">
+                <!-- JavaScript inserts the selected request details here -->
+            </div>
+
+            <div class="request-details-footer">
+                <label for="details-status-select">Update status</label>
+
+                <select id="details-status-select">
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+                </select>
+
+                <button type="button"
+                        id="save-request-status"
+                        class="action-button">
+                    Save Status
+                </button>
+
+                <p id="details-status-message"
+                   role="status"
+                   aria-live="polite"></p>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer admin-footer">
+        <div class="footer-content">
+            <p>&copy; <span id="current-year">2026</span> Kenyan Voice. All rights reserved.</p>
+            <p>Developed by <strong>StarTech Solutions</strong></p>
+            <p>Independent demonstration project. Not an official government website.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

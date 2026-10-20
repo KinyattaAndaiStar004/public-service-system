@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Create Account | Kenyan Voice</title>
+
+    <meta
+      name="description"
+      content="Create a Kenyan Voice account to submit and track public service requests."
+    />
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/register.css" />
+
+    <script src="../js/main.js" defer></script>
+    <script type="module" src="../js/auth.js"></script>
+  </head>
+
+  <body class="register-page">
+    <!-- Header: matching the login page -->
+    <header class="site-header">
+      <div class="container header-content">
+        <a class="brand" href="index.html" aria-label="Kenyan Voice home">
+          <span class="kenya-logo" aria-hidden="true">
+            <span class="flag-black"></span>
+            <span class="flag-red"></span>
+            <span class="flag-green"></span>
+          </span>
+
+          <span class="brand-name"> Kenyan <strong>Voice</strong> </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="login.html">Login</a>
+          <a href="register.html" class="active" aria-current="page">
+            Register
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Registration Section -->
+    <main class="register-section">
+      <div class="container register-container">
+        <section class="register-card">
+          <!-- Branding: matching the login page -->
+          <div class="government-branding">
+            <img
+              src="../assets/kenyanlogo.webp"
+              alt="Coat of Arms of the Republic of Kenya"
+              class="republic-logo"
+            />
+
+            <p class="republic-name">REPUBLIC OF KENYA</p>
+
+            <h1 class="project-title">Kenyan Voice</h1>
+
+            <p class="project-subtitle">Public Service Request System</p>
+
+            <div class="branding-divider"></div>
+          </div>
+
+          <!-- Registration Heading -->
+          <div class="register-heading">
+            <h2>Create Your Account</h2>
+
+            <p>
+              Join Kenyan Voice to submit and track public service requests.
+            </p>
+          </div>
+
+          <!-- Registration Feedback -->
+          <div
+            id="register-message"
+            class="form-message"
+            role="status"
+            aria-live="polite"
+            hidden
+          ></div>
+
+          <!-- Registration Form -->
+          <form id="register-form" novalidate>
+            <div class="form-group">
+              <label for="full-name">Full Name</label>
+
+              <input
+                type="text"
+                id="full-name"
+                name="fullName"
+                placeholder="Enter your full name"
+                autocomplete="name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="national-id"> National ID Number (Optional) </label>
+
+              <input
+                type="text"
+                id="national-id"
+                name="nationalId"
+                placeholder="Enter your ID number if required"
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="example@email.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="e.g. 0712345678"
+                autocomplete="tel"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="county">County</label>
+
+              <select id="county" name="county" required>
+                <option value="">Select your county</option>
+                <option value="Baringo">Baringo</option>
+                <option value="Bomet">Bomet</option>
+                <option value="Bungoma">Bungoma</option>
+                <option value="Busia">Busia</option>
+                <option value="Elgeyo-Marakwet">Elgeyo-Marakwet</option>
+                <option value="Embu">Embu</option>
+                <option value="Garissa">Garissa</option>
+                <option value="Homa Bay">Homa Bay</option>
+                <option value="Isiolo">Isiolo</option>
+                <option value="Kajiado">Kajiado</option>
+                <option value="Kakamega">Kakamega</option>
+                <option value="Kericho">Kericho</option>
+                <option value="Kiambu">Kiambu</option>
+                <option value="Kilifi">Kilifi</option>
+                <option value="Kirinyaga">Kirinyaga</option>
+                <option value="Kisii">Kisii</option>
+                <option value="Kisumu">Kisumu</option>
+                <option value="Kitui">Kitui</option>
+                <option value="Kwale">Kwale</option>
+                <option value="Laikipia">Laikipia</option>
+                <option value="Lamu">Lamu</option>
+                <option value="Machakos">Machakos</option>
+                <option value="Makueni">Makueni</option>
+                <option value="Mandera">Mandera</option>
+                <option value="Marsabit">Marsabit</option>
+                <option value="Meru">Meru</option>
+                <option value="Migori">Migori</option>
+                <option value="Mombasa">Mombasa</option>
+                <option value="Murang'a">Murang'a</option>
+                <option value="Nairobi">Nairobi</option>
+                <option value="Nakuru">Nakuru</option>
+                <option value="Nandi">Nandi</option>
+                <option value="Narok">Narok</option>
+                <option value="Nyamira">Nyamira</option>
+                <option value="Nyandarua">Nyandarua</option>
+                <option value="Nyeri">Nyeri</option>
+                <option value="Samburu">Samburu</option>
+                <option value="Siaya">Siaya</option>
+                <option value="Taita-Taveta">Taita-Taveta</option>
+                <option value="Tana River">Tana River</option>
+                <option value="Tharaka-Nithi">Tharaka-Nithi</option>
+                <option value="Trans Nzoia">Trans Nzoia</option>
+                <option value="Turkana">Turkana</option>
+                <option value="Uasin Gishu">Uasin Gishu</option>
+                <option value="Vihiga">Vihiga</option>
+                <option value="Wajir">Wajir</option>
+                <option value="West Pokot">West Pokot</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Create a password"
+                autocomplete="new-password"
+                minlength="8"
+                required
+              />
+
+              <small class="field-hint">
+                Your password must have at least 8 characters, an uppercase
+                letter, a lowercase letter, a number, and a special character.
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label for="confirm-password">Confirm Password</label>
+
+              <input
+                type="password"
+                id="confirm-password"
+                name="confirmPassword"
+                placeholder="Enter your password again"
+                autocomplete="new-password"
+                minlength="8"
+                required
+              />
+            </div>
+
+            <div class="form-group terms-group">
+              <label for="terms">
+                <input type="checkbox" id="terms" name="terms" required />
+
+                <span>
+                  I agree to the use of my information to manage my public
+                  service requests.
+                </span>
+              </label>
+            </div>
+
+            <button
+              type="submit"
+              id="register-submit"
+              class="btn btn-primary register-submit"
+            >
+              Create Account
+            </button>
+          </form>
+
+          <p class="register-login">
+            Already have an account?
+            <a href="login.html">Login here</a>
+          </p>
+
+          <p class="independent-notice">
+            Independent demonstration project. Not an official government
+            website.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer: matching the login page -->
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <p>&copy; 2026 Kenyan Voice. All rights reserved.</p>
+
+        <p class="developer-credit">
+          Developed by <strong>StarTech Solutions</strong>
+        </p>
+
+        <p class="footer-disclaimer">
+          Independent demonstration project. Not an official government website.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

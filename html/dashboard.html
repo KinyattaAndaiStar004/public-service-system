@@ -1,0 +1,295 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Submit and track public service requests using Kenyan Voice." />
+    <title>Citizen Dashboard | Kenyan Voice</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+
+    <script src="../js/main.js" defer></script>
+</head>
+
+<body class="citizen-dashboard">
+    <header class="citizen-header">
+        <div class="citizen-header-content">
+            <a href="index.html" class="citizen-brand" aria-label="Kenyan Voice Home">
+                <span class="citizen-flag" aria-hidden="true">
+                    <span class="citizen-flag-black"></span>
+                    <span class="citizen-flag-red"></span>
+                    <span class="citizen-flag-green"></span>
+                </span>
+                <span>Kenyan <strong>Voice</strong></span>
+            </a>
+
+            <nav class="citizen-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html" class="active" aria-current="page">Dashboard</a>
+                <a href="#submit-request">Submit Request</a>
+                <a href="login.html" id="citizen-logout" class="citizen-logout">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="citizen-main">
+        <div class="citizen-container">
+
+            <section class="citizen-welcome">
+                <div>
+                    <p class="citizen-eyebrow">CITIZEN PORTAL</p>
+                    <h1>Your Dashboard</h1>
+                    <p id="citizen-welcome-message">
+                        Report public service issues, track your requests, and stay informed about their progress.
+                    </p>
+                </div>
+
+                <a href="#submit-request" class="citizen-primary-button">
+                    <span aria-hidden="true">+</span> Submit a Request
+                </a>
+            </section>
+
+            <p id="dashboard-message"
+               class="citizen-form-message"
+               role="status"
+               aria-live="polite"
+               hidden></p>
+
+            <section class="citizen-statistics" aria-label="Your request statistics">
+                <article class="citizen-stat-card">
+                    <div class="citizen-stat-icon citizen-total-icon" aria-hidden="true">▤</div>
+                    <div>
+                        <p>Total Requests</p>
+                        <h2 id="citizen-total-count">0</h2>
+                        <span>All your submitted requests</span>
+                    </div>
+                </article>
+
+                <article class="citizen-stat-card">
+                    <div class="citizen-stat-icon citizen-pending-icon" aria-hidden="true">◷</div>
+                    <div>
+                        <p>Pending</p>
+                        <h2 id="citizen-pending-count">0</h2>
+                        <span>Awaiting attention</span>
+                    </div>
+                </article>
+
+                <article class="citizen-stat-card">
+                    <div class="citizen-stat-icon citizen-progress-icon" aria-hidden="true">↻</div>
+                    <div>
+                        <p>In Progress</p>
+                        <h2 id="citizen-progress-count">0</h2>
+                        <span>Being handled</span>
+                    </div>
+                </article>
+
+                <article class="citizen-stat-card">
+                    <div class="citizen-stat-icon citizen-resolved-icon" aria-hidden="true">✓</div>
+                    <div>
+                        <p>Resolved</p>
+                        <h2 id="citizen-resolved-count">0</h2>
+                        <span>Completed requests</span>
+                    </div>
+                </article>
+            </section>
+
+            <section class="citizen-panel submit-request-panel" id="submit-request">
+                <div class="citizen-panel-heading">
+                    <div>
+                        <p class="citizen-section-label">MAKE YOUR VOICE HEARD</p>
+                        <h2>Submit a Public Service Request</h2>
+                        <p>
+                            Provide accurate information to help the relevant service team understand the issue.
+                        </p>
+                    </div>
+                </div>
+
+                <form id="request-form" class="citizen-request-form">
+                    <div class="citizen-form-grid">
+                        <div class="citizen-form-group">
+                            <label for="request-category">
+                                Request Category <span class="required-mark">*</span>
+                            </label>
+                            <select id="request-category" name="category" required>
+                                <option value="">Select a category</option>
+                                <option value="Water">Water Supply</option>
+                                <option value="Waste">Waste Management</option>
+                                <option value="Roads">Roads and Drainage</option>
+                                <option value="Lighting">Street Lighting</option>
+                                <option value="Other">Other Public Service</option>
+                            </select>
+                        </div>
+
+                        <div class="citizen-form-group">
+                            <label for="request-location">
+                                Location of the Issue <span class="required-mark">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="request-location"
+                                name="location"
+                                placeholder="e.g. Embu Town, near the market"
+                                maxlength="200"
+                                required
+                            />
+                        </div>
+
+                        <div class="citizen-form-group citizen-full-width">
+                            <label for="request-description">
+                                Description <span class="required-mark">*</span>
+                            </label>
+                            <textarea
+                                id="request-description"
+                                name="description"
+                                rows="5"
+                                minlength="10"
+                                maxlength="2000"
+                                placeholder="Describe the issue, its location, and how it affects the community..."
+                                required
+                            ></textarea>
+                            <small>Provide at least 10 characters and include useful details.</small>
+                        </div>
+
+                        <div class="citizen-form-group citizen-full-width">
+                            <label for="request-image">
+                                Attach an Image <span class="optional-mark">(Optional)</span>
+                            </label>
+                            <input
+                                type="file"
+                                id="request-image"
+                                name="image"
+                                accept="image/jpeg,image/png,image/webp"
+                            />
+                            <small>
+                                Optional evidence photo. Accepted formats: JPG, PNG, or WebP.
+                                Maximum file size: 5 MB.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="citizen-form-actions">
+                        <button type="reset" class="citizen-secondary-button">
+                            Clear Form
+                        </button>
+                        <button
+                            type="submit"
+                            id="submit-request-button"
+                            class="citizen-primary-button"
+                        >
+                            Submit Request
+                        </button>
+                    </div>
+
+                    <p
+                        id="request-form-message"
+                        class="citizen-form-message"
+                        role="status"
+                        aria-live="polite"
+                        hidden
+                    ></p>
+                </form>
+            </section>
+
+            <section class="citizen-panel my-requests-panel" id="my-requests">
+                <div class="citizen-panel-heading citizen-requests-heading">
+                    <div>
+                        <p class="citizen-section-label">REQUEST HISTORY</p>
+                        <h2>My Requests</h2>
+                        <p>Track the progress of the issues you have reported.</p>
+                    </div>
+
+                    <div class="citizen-filter">
+                        <label for="citizen-status-filter">Filter by status</label>
+                        <select id="citizen-status-filter" name="status">
+                            <option value="">All Statuses</option>
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="citizen-table-wrapper">
+                    <table class="citizen-requests-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Request ID</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Date Submitted</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Details</th>
+                            </tr>
+                        </thead>
+                        <tbody id="citizen-requests-table-body">
+                            <tr>
+                                <td colspan="6" class="citizen-empty-state">
+                                    Loading your requests...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="citizen-table-note" id="citizen-table-note">
+                    Your submitted requests will appear here.
+                </div>
+            </section>
+
+            <p class="citizen-disclaimer">
+                Kenyan Voice is an independent demonstration project and is not an official government website.
+                Do not submit confidential personal information.
+            </p>
+        </div>
+    </main>
+
+    <!-- Custom request confirmation popup -->
+    <div id="request-confirm-modal" class="confirm-overlay" hidden>
+        <div class="confirm-box"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="confirm-title"
+             aria-describedby="confirm-description">
+
+            <div class="confirm-icon" aria-hidden="true">?</div>
+
+            <h2 id="confirm-title">Confirm Your Request</h2>
+
+            <p id="confirm-description">
+                Are you sure you want to submit this public service request?
+            </p>
+
+            <div class="confirm-details">
+                <p><strong>Category:</strong> <span id="confirm-category"></span></p>
+                <p><strong>Location:</strong> <span id="confirm-location"></span></p>
+            </div>
+
+            <p class="confirm-note">
+                Please ensure the information is correct before submitting.
+            </p>
+
+            <div class="confirm-actions">
+                <button type="button" id="confirm-cancel" class="confirm-cancel">
+                    Cancel
+                </button>
+                <button type="button" id="confirm-submit" class="confirm-submit">
+                    Yes, Submit
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="citizen-footer">
+        <div class="citizen-footer-content">
+            <p>&copy; <span id="current-year">2026</span> Kenyan Voice. All rights reserved.</p>
+            <p>Developed by <strong>StarTech Solutions</strong></p>
+            <p>Independent demonstration project. Not an official government website.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../js/requests.js"></script>
+    <script type="module" src="../js/dashboard.js"></script>
+</body>
+</html>

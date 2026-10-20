@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Login to Kenyan Voice, a public service request system demonstration."
+    />
+
+    <title>Login | Kenyan Voice</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+
+  <body class="login-page">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-content">
+        <a href="index.html" class="brand">
+          <span class="kenya-logo" aria-label="Kenyan flag">
+            <span class="flag-black"></span>
+            <span class="flag-red"></span>
+            <span class="flag-green"></span>
+          </span>
+
+          <span class="brand-name">Kenyan Voice</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="register.html">Register</a>
+          <a href="login.html" class="active" aria-current="page">Login</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Login Section -->
+    <main class="login-section">
+      <div class="login-container">
+        <!-- Government-inspired branding -->
+        <div class="government-branding">
+          <img
+            src="../assets/kenyanlogo.webp"
+            alt="Coat of Arms of the Republic of Kenya"
+            class="republic-logo"
+          />
+
+          <p class="republic-name">REPUBLIC OF KENYA</p>
+
+          <h1 class="project-title">Kenyan Voice</h1>
+
+          <p class="project-subtitle">Public Service Request System</p>
+
+          <div class="branding-divider"></div>
+        </div>
+
+        <!-- Login heading -->
+        <div class="login-heading">
+          <h2>Welcome Back</h2>
+          <p>Login to manage your public service requests.</p>
+        </div>
+
+        <!-- Login form -->
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email">Email Address</label>
+
+            <input
+              type="email"
+              id="login-email"
+              name="email"
+              placeholder="Enter your email address"
+              autocomplete="email"
+              aria-describedby="login-message"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="login-password">Password</label>
+
+            <input
+              type="password"
+              id="login-password"
+              name="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+
+          <!-- Remember me and password recovery -->
+          <div class="login-options">
+            <label class="remember-option" for="remember-me">
+              <input type="checkbox" id="remember-me" name="remember-me" />
+              <span>Remember me</span>
+            </label>
+
+            <a href="#" id="forgot-password">Forgot password?</a>
+          </div>
+
+          <!-- Login feedback -->
+          <p
+            id="login-message"
+            class="form-message"
+            role="status"
+            aria-live="polite"
+            hidden
+          ></p>
+
+          <button type="submit" class="login-btn">Login</button>
+        </form>
+
+        <!-- Password reset feedback -->
+        <p
+          id="reset-message"
+          class="form-message"
+          role="status"
+          aria-live="polite"
+          hidden
+        ></p>
+
+        <!-- Registration link -->
+        <div class="register-prompt">
+          <p>
+            Don't have an account?
+            <a href="register.html">Create an account</a>
+          </p>
+        </div>
+
+        <!-- Independent project disclaimer -->
+        <p class="independent-notice">
+          Independent demonstration project. Not an official government website.
+        </p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>&copy; 2026 Kenyan Voice. All rights reserved.</p>
+
+        <p class="developer-credit">
+          Developed by <strong>StarTech Solutions</strong>
+        </p>
+
+        <p class="footer-disclaimer">
+          Independent demonstration project. Not an official government website.
+        </p>
+      </div>
+    </footer>
+
+    <!-- General page functionality -->
+    <script src="../js/main.js" defer></script>
+
+    <!-- Firebase authentication -->
+    <script type="module" src="../js/auth.js"></script>
+  </body>
+</html>
